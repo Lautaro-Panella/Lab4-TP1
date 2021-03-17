@@ -1,7 +1,6 @@
 package com.lab4.trabajopractico1.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import javafx.print.Paper;
 
 import javax.persistence.*;
 import java.io.Serializable;
