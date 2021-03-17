@@ -55,7 +55,7 @@ public class EmpresaServicio implements BaseServicio<Empresa> {
     }
 
     @Transactional
-    List<Empresa> findByDenominacion(String denominacion){
+    public List<Empresa> findByDenominacion(String denominacion){
         return this.empresaRepositorio.findByDenominacion(denominacion);
     }
 

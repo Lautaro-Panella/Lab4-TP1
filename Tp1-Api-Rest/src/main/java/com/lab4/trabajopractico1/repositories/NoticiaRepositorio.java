@@ -12,10 +12,10 @@ import java.util.List;
 public interface NoticiaRepositorio extends CrudRepository<Noticia, Long> {
 
     @Query(value = "SELECT n FROM Noticia n WHERE n.empresa.id = :empresa") //JPQL
-    List<Noticia> findByIdEmpresa(@Param("empresa") Long empresa);
+    public List<Noticia> findByIdEmpresa(@Param("empresa") Long empresa);
 
-    List<Noticia> findByTituloNoticia(String tituloNoticia);
+    public List<Noticia> findByTituloNoticia(String tituloNoticia);
 
-    List<Noticia> findByResumenNoticia(String resumenNoticia);
+    public List<Noticia> findByResumenNoticia(String resumenNoticia);
 
 }

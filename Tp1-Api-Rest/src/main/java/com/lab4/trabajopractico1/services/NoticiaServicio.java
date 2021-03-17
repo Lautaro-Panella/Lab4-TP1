@@ -55,19 +55,18 @@ public class NoticiaServicio implements BaseServicio<Noticia> {
     }
 
     @Transactional(readOnly = true)
-    List<Noticia> findByIdEmpresa(Long empresa){
+    public List<Noticia> findByIdEmpresa(Long empresa){
         return this.noticiaRepositorio.findByIdEmpresa(empresa);
     }
 
     @Transactional
-    List<Noticia> findByTituloNoticia(String tituloNoticia){
+    public List<Noticia> findByTituloNoticia(String tituloNoticia){
         return this.noticiaRepositorio.findByTituloNoticia(tituloNoticia);
     }
 
     @Transactional
-    List<Noticia> findByResumenNoticia(String resumenNoticia){
+    public List<Noticia> findByResumenNoticia(String resumenNoticia){
         return this.noticiaRepositorio.findByResumenNoticia(resumenNoticia);
     }
-
 
 }
