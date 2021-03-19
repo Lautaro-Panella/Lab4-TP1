@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tp1-FrontEnd-Angular';
-  empresa:string[]=['Pepsi','Coca-Cola','Fanta'];
+  
 }
