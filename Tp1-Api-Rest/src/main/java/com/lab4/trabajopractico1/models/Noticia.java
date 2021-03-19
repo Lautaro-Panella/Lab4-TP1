@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name = "noticia")
 public class Noticia implements Serializable {
-    private static final Long serialVersionUID=1L;
+    private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class Noticia implements Serializable {
     private char publicada;
     @Column(name = "fecha_publicacion")
     private Date fecha;
-    @Column(name = "id_empresa")
+
     @ManyToOne(fetch = FetchType.EAGER,cascade ={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "id_empresa")
     @JsonBackReference
