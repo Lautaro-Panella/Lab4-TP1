@@ -1,11 +1,11 @@
 package com.lab4.trabajopractico1.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -17,8 +17,8 @@ public class Empresa implements Serializable {
     private String denominacion;
     @Column(name = "telefono",length = 50)
     private String telefono;
-    @Column(name = "hora_de_atencion",length = 256)
-    private String horarioDeAtencion;
+    @Column(name = "horario_atencion",length = 256)
+    private String horarioAtencion;
     @Column(name = "quienes_somos",length = 1024)
     private String quienesSomos;
     @Column(name = "latitud")
@@ -29,8 +29,9 @@ public class Empresa implements Serializable {
     private String domicilio;
     @Column(name = "email",length = 75)
     private String email;
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "empresa",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
-    @JsonManagedReference
     List<Noticia> noticias = new ArrayList<>();
 
     public Empresa() {
@@ -64,12 +65,12 @@ public class Empresa implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getHorarioDeAtencion() {
-        return horarioDeAtencion;
+    public String getHorarioAtencion() {
+        return horarioAtencion;
     }
 
-    public void setHorarioDeAtencion(String horarioDeAtencion) {
-        this.horarioDeAtencion = horarioDeAtencion;
+    public void setHorarioAtencion(String horarioAtencion) {
+        this.horarioAtencion = horarioAtencion;
     }
 
     public String getQuienesSomos() {

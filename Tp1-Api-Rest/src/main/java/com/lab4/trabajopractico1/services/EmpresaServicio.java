@@ -39,7 +39,7 @@ public class EmpresaServicio implements BaseServicio<Empresa> {
 
     @Override
     @Transactional
-    public Empresa update(Long id, Empresa empresa) {
+    public Empresa update(Empresa empresa) {
         return this.empresaRepositorio.save(empresa);
     }
 

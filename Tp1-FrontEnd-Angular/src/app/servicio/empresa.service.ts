@@ -1,26 +1,35 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Empresa } from '../modelo/empresa.model';
+import { EmpresaI } from '../modelo/empresa.interface';
 import { Injectable } from '@angular/core';
-@Injectable()
-export class EmpresaServicio {
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmpresaService {
+
   private url: string = 'http://localhost:8080/empresa/';
+  private header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {}
-  //Obtengo todas las empresas
+
   getAllEmpresas() {
-    let header = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get<Empresa[]>(this.url, { headers: header });
+    return this.http.get<EmpresaI[]>(this.url, { headers: this.header });
   }
-  getEmpresaById(id: number) {
-    return this.http.get<Empresa>(this.url + id);
+
+  getEmpresaById(id: any) {
+    return this.http.get<EmpresaI>(this.url + id, { headers: this.header });
   }
-  saveEmpresa(empresa: Empresa) {
-    return this.http.post<Empresa>(this.url, empresa);
+
+  saveEmpresa(empresa: EmpresaI) {
+    return this.http.post<EmpresaI>(this.url, empresa, { headers: this.header });
   }
-  updateEmpresa(empresa: Empresa) {
-    return this.http.put<Empresa>(this.url, empresa);
+
+  updateEmpresa(empresa: EmpresaI) {
+    return this.http.put<EmpresaI>(this.url, empresa, { headers: this.header });
   }
-  deleteEmpresa(id: number) {
+
+  deleteEmpresa(id: any) {
     return this.http.delete(this.url + id, { responseType: 'text' });
   }
+
 }

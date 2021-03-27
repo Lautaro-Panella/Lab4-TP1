@@ -39,7 +39,7 @@ public class NoticiaServicio implements BaseServicio<Noticia> {
 
     @Override
     @Transactional
-    public Noticia update(Long id, Noticia noticia) {
+    public Noticia update(Noticia noticia) {
         return this.noticiaRepositorio.save(noticia);
     }
 

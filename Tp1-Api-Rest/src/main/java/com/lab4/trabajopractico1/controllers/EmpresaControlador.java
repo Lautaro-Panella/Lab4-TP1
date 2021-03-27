@@ -47,7 +47,7 @@ public class EmpresaControlador {
     
     @PutMapping() // Al hacer una petición con la ruta principal y el método PUT, pasando en el body, en formato JSON el objeto a actualizar, el controller actualiza la empresa indicada.
     public Empresa updateEmpresa(@RequestBody Empresa empresa) {
-        return empresaServicio.update(empresa.getId(), empresa);
+        return empresaServicio.update(empresa);
     }
     
     @DeleteMapping(path = "/{id}") // Al hacer una petición con la ruta principal/id y el método DELETE, el controller elimina la empresa con el Id indicado y nos devuelve un mensaje de confirmación. En caso que el usuario no exista, nos devuelve un mensaje de operación fallida.

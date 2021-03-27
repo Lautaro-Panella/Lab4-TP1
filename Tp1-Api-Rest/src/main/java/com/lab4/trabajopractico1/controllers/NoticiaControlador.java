@@ -57,7 +57,7 @@ public class NoticiaControlador {
     
     @PutMapping() // Al hacer una petición con la ruta principal y el método PUT, pasando en el body, en formato JSON el objeto a actualizar, el controller actualiza la noticia indicada.
     public Noticia updateNoticia(@RequestBody Noticia noticia) {
-        return noticiaServicio.update(noticia.getId(), noticia);
+        return noticiaServicio.update(noticia);
     }
     
     @DeleteMapping(path = "/{id}") // Al hacer una petición con la ruta principal/id y el método DELETE, el controller elimina la noticia con el Id indicado y nos devuelve un mensaje de confirmación. En caso que el usuario no exista, nos devuelve un mensaje de operación fallida.

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Empresa } from '../modelo/empresa.model';
-import { EmpresaServicio } from '../servicio/empresa.service';
+import { EmpresaI } from '../modelo/empresa.interface';
+import { EmpresaService } from '../servicio/empresa.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ver-empresas',
@@ -8,8 +9,10 @@ import { EmpresaServicio } from '../servicio/empresa.service';
   styleUrls: ['./ver-empresas.component.css'],
 })
 export class VerEmpresasComponent implements OnInit {
-  empresas: Empresa[];
-  constructor(private empresaServicio: EmpresaServicio) {}
+
+  empresas: EmpresaI[];
+  
+  constructor(private empresaServicio: EmpresaService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.verEmpresas();
@@ -20,4 +23,13 @@ export class VerEmpresasComponent implements OnInit {
       this.empresas = data;
     });
   }
+
+  verNoticias(): void {
+    this.router.navigate(['ver-noticias']);
+  }
+
+  editarEmpresa(id: number): void {
+    this.router.navigate(['editar-empresa', id]);
+  }
+
 }

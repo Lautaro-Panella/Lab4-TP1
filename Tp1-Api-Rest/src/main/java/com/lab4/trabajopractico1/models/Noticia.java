@@ -1,10 +1,9 @@
 package com.lab4.trabajopractico1.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+
 @Entity
 @Table(name = "noticia")
 public class Noticia implements Serializable {
@@ -16,18 +15,17 @@ public class Noticia implements Serializable {
     private String tituloNoticia;
     @Column(name = "resumen_de_la_noticia",length = 1024)
     private String resumenNoticia;
-    @Column(name = "imagen_noticia",length = 128)
+    @Column(name = "imagen_noticia",length = 20480)
     private String imagenNoticia;
     @Column(name = "contenido_html",length = 20480)
     private String contenidoHtml;
     @Column(name = "publicada")
-    private char publicada;
+    private boolean publicada;
     @Column(name = "fecha_publicacion")
     private Date fecha;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade ={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "id_empresa")
-    @JsonBackReference
     private Empresa empresa;
 
     public Noticia() {
@@ -77,11 +75,11 @@ public class Noticia implements Serializable {
         this.contenidoHtml = contenidoHtml;
     }
 
-    public char getPublicada() {
+    public boolean getPublicada() {
         return publicada;
     }
 
-    public void setPublicada(char publicada) {
+    public void setPublicada(boolean publicada) {
         this.publicada = publicada;
     }
 
