@@ -36,4 +36,8 @@ export class NoticiaService {
     return this.http.delete(this.url + id, { responseType: 'text' });
   }
 
+  getNoticiasPorTituloOrResumen(consulta: any){
+    return this.http.get<NoticiaI[]>(this.url + "consulta2?consulta=" + consulta, { headers: this.header });
+  } 
+
 }

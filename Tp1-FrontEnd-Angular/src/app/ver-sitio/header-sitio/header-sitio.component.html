@@ -1,0 +1,60 @@
+<!-- HEADER -->
+<div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="navbar-header">
+            <a routerLink="/home/{{ empresa.id }}">
+              <div class="navbar-brand color text-white px-5">
+                <span class="navbar-brand marca">{{ empresa.denominacion }}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 text-right">
+          <p class="telefono">TELÉFONO</p>
+          <a href="callto:#" class="telefonoNumero">
+            <i class="fas fa-mobile-alt">&nbsp;</i>{{ empresa.telefono }}</a
+          >
+          <p class="horarioAtencion">
+            <b>Horario:</b>&nbsp;<span>{{ empresa.horarioAtencion }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--NAVEGACIÓN-->
+  <nav class="navbar navbar-expand-sm navbar-dark sticky-top color my-4">
+    <a class="navbar-brand navegacion btn btn-light text-primary" routerLink="/home/{{ empresa.id }}">INICIO</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="btn btn-outline-light navegacion" routerLink="/ver-empresas">LISTA DE EMPRESAS</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0" [formGroup]="searchForm" (ngSubmit)="getNews(searchForm.value)">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          formControlName="buscar"
+          placeholder="Ingrese texto"
+          aria-label="Search"
+        />
+        <input type="hidden" name="id" [ngModel]="empresa.id">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </nav>

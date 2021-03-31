@@ -21,6 +21,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import  localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { HomeComponent } from './ver-sitio/home/home.component';
+import { DetalleComponent } from './ver-sitio/detalle/detalle.component';
+import { AgmCoreModule } from '@agm/core';
+import { NoEncontradoComponent } from './ver-sitio/no-encontrado/no-encontrado.component';
+import { HeaderSitioComponent } from './ver-sitio/header-sitio/header-sitio.component';
+import { FooterSitioComponent } from './ver-sitio/footer-sitio/footer-sitio.component';
+import { BuscadorComponent } from './ver-sitio/buscador/buscador.component';
 registerLocaleData(localeEs, 'es'); 
 
 @NgModule({
@@ -33,13 +40,22 @@ registerLocaleData(localeEs, 'es');
     FooterComponent,
     VerNoticiasComponent,
     NuevaNoticiaComponent,
-    EditarNoticiaComponent
+    EditarNoticiaComponent,
+    HomeComponent,
+    DetalleComponent,
+    NoEncontradoComponent,
+    HeaderSitioComponent,
+    FooterSitioComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''      
+    }),
     FormsModule,
     BrowserAnimationsModule, // Required animations module
     ToastrModule.forRoot(), // ToastrModule added

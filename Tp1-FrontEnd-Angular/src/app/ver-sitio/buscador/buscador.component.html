@@ -1,0 +1,45 @@
+<section>
+  <div class="container">
+    <h2>Texto Buscado: "<u>{{ form }}</u>"</h2>
+    <div class="row">
+      <table width="90%" align="center">
+        <tbody *ngFor="let consulta of consultas">
+          <tr >
+            <td>
+              <a routerLink="/detalle/{{ consulta.empresa.id }}/{{ consulta.id }}">
+                <img
+                  width="100px"
+                  height="50px"
+                  class="imgNoticia"
+                  src= "{{ consulta.imagenNoticia }}"
+                  alt="Imagen"
+                />
+              </a>
+            </td>
+            <td width="25"></td>
+            <td style="text-align: justify" valign="top">
+              <a
+                style="text-align: justify; font-size: 20px"
+                routerLink="/detalle/{{ consulta.empresa.id }}/{{ consulta.id }}"
+                class="banner"
+              >
+                
+                {{ consulta.tituloNoticia }}
+              </a>
+              <div class="verOcultar" >
+                {{ consulta.resumenNoticia
+                }}<a routerLink="/detalle/{{ consulta.empresa.id }}/{{ consulta.id }}" style="color: blue">
+                  Leer Mas - {{ consulta.fecha | date: 'short'}}</a
+                >
+              </div>
+            </td>
+            </tr>
+          <tr>
+            <td><a routerLink="/home/{{ consulta.empresa.id }}">Volve a Home</a></td>
+        </tr>
+        </tbody>
+      </table>
+      <hr />
+    </div>
+  </div>
+</section>

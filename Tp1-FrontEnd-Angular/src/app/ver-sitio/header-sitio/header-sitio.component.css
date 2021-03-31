@@ -1,0 +1,43 @@
+.color {
+    background-color: #1092FF;
+}
+
+.marca{
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.horarioAtencion {
+    font-size: 14px;
+    font-style: italic;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.telefono{
+    font-size: 36px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.telefonoNumero {
+    font-size: 40px;
+    color: #1092FF;
+    font-weight: 400;
+}
+
+.navbar-dark{
+    padding: 12px;
+}
+
+.navegacion {
+    padding: 5px 30px;
+    font-size: 25px;
+    font-weight: 500; 
+}
+
+
+
+
+

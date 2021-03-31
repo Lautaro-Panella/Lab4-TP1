@@ -1,0 +1,42 @@
+.carousel-caption{
+    background-color:#3135385e;
+    margin-bottom: 10%;
+    padding: 50px 100px;
+    width: 50%;
+    border-radius: 6px;
+ 
+ }
+ 
+ .carousel-caption p a i{ 
+     font-size: 20px;
+ 
+ }
+ 
+ .carousel-caption h5{ 
+     font-size: 30px;
+     text-transform: uppercase;
+ }
+ 
+ .subtitulos {
+     font-size: 50px;
+     color: #1092FF;
+     line-height: 30px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+ }
+ 
+ 
+ agm-map{
+     width: 1200px;
+     height: 400px;
+ }
+ 
+ hr {
+     border: 15px solid #070606;
+ }
+ 
+ .quienesSomos{
+     font-size: 20px;
+     font-family: 'Courier New', Courier, monospace;
+     font-weight: normal;
+ }
