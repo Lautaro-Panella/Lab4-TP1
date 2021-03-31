@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author hp
+ * @author Maggini - Panella - Tarditi
  */
 
 @CrossOrigin(origins = "*")
@@ -24,33 +24,67 @@ public class EmpresaControlador {
     
     @Autowired
     EmpresaServicio empresaServicio;
-    
-    @GetMapping() // Al hacer una petición con la ruta principal y el método GET, el controller nos devuelve todas las empresas.
+
+    /**
+     * Al hacer una petición con la ruta principal y el método GET, el controller nos devuelve todas las empresas.
+     * @return una lista de empresas
+     */
+    @GetMapping()
     public List<Empresa> getEmpresas() {
         return empresaServicio.findByAll();
     }
-    
-    @GetMapping(path = "/{id}") // Al hacer una petición con la ruta principal/id y el método GET, el controller nos devuelve la empresa con el Id indicado.
+
+    /**
+     * Al hacer una petición con la ruta principal/id y el método GET, el controller nos devuelve la empresa
+     * con el Id indicado.
+     * @param id Long
+     * @return la empresa
+     */
+    @GetMapping(path = "/{id}")
     public Optional<Empresa> getEmpresaPorId(@PathVariable("id") Long id) {
         return empresaServicio.findById(id);
     }
-    
-    @GetMapping("/consulta") // Al hacer una petición con la ruta principal/consulta?denominacion=valorDenominacion y el método GET, el controller nos devuelve la/las empresa/s con la denominación indicada.
+
+    /**
+     * Al hacer una petición con la ruta principal/consulta?denominacion=valorDenominacion y el método GET,
+     * el controller nos devuelve la/las empresa/s con la denominación indicada.
+     * @param denominacion String
+     * @return la o las empresas por denominación
+     */
+    @GetMapping("/consulta")
     public List<Empresa> getEmpresaPorDenominacion(@RequestParam("denominacion") String denominacion) {
         return empresaServicio.findByDenominacion(denominacion);
     }
-    
-    @PostMapping() // Al hacer una petición con la ruta principal y el método POST, pasando en el body, en formato JSON el objeto a guardar/actualizar, el controller guarda la empresa (si no especificamos Id), o actualiza la empresa (si especificamos Id).
+
+    /**
+     * Al hacer una petición con la ruta principal y el método POST, pasando en el body, en formato JSON el objeto
+     * a guardar/actualizar, el controller guarda la empresa (si no especificamos Id), o actualiza la empresa (si especificamos Id).
+     * @param empresa Empresa
+     * @return la empresa guardada
+     */
+    @PostMapping()
     public Empresa saveUpdateEmpresa(@RequestBody Empresa empresa) {
         return empresaServicio.save(empresa);
     }
-    
-    @PutMapping() // Al hacer una petición con la ruta principal y el método PUT, pasando en el body, en formato JSON el objeto a actualizar, el controller actualiza la empresa indicada.
+
+    /**
+     * Al hacer una petición con la ruta principal y el método PUT, pasando en el body, en formato JSON el objeto a
+     * actualizar, el controller actualiza la empresa indicada.
+     * @param empresa Empresa
+     * @return la empresa actualizada
+     */
+    @PutMapping()
     public Empresa updateEmpresa(@RequestBody Empresa empresa) {
         return empresaServicio.update(empresa);
     }
-    
-    @DeleteMapping(path = "/{id}") // Al hacer una petición con la ruta principal/id y el método DELETE, el controller elimina la empresa con el Id indicado y nos devuelve un mensaje de confirmación. En caso que el usuario no exista, nos devuelve un mensaje de operación fallida.
+
+    /**
+     * Al hacer una petición con la ruta principal/id y el método DELETE, el controller elimina la empresa con el Id
+     * indicado y nos devuelve un mensaje de confirmación. En caso que el usuario no exista, nos devuelve un mensaje de operación fallida.
+     * @param id Long
+     * @return un mensaje de si se elimino la empresa o no
+     */
+    @DeleteMapping(path = "/{id}")
     public String deleteEmpresa(@PathVariable("id") Long id) {
         boolean eliminado = empresaServicio.delete(id);
         if (eliminado) {

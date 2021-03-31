@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Es una clase de servicio que implementa la interface base de servicio
+ * @author Maggini - Panella - Tarditi
+ */
 @Service
 public class EmpresaServicio implements BaseServicio<Empresa> {
 

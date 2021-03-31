@@ -6,12 +6,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase Empresa es la que almacenará cada empresa y este contendrá muchas noticias
+ * @author Maggini - Panella - Tarditi
+ */
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     @Column(name = "denominacion",length = 128)
     private String denominacion;

@@ -9,6 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Es una clase de servicio que implementa la interface base de servicio
+ * @author Maggini - Panella - Tarditi
+ */
 @Service
 public class NoticiaServicio implements BaseServicio<Noticia> {
 
@@ -60,13 +64,7 @@ public class NoticiaServicio implements BaseServicio<Noticia> {
     }
 
     @Transactional
-    public List<Noticia> findByTituloNoticia(String tituloNoticia){
-        return this.noticiaRepositorio.findByTituloNoticia(tituloNoticia);
+    public List<Noticia> findByTituloNoticia(String consulta){
+        return this.noticiaRepositorio.findByTituloNoticiaContainingOrResumenNoticiaContaining(consulta, consulta);
     }
-
-    @Transactional
-    public List<Noticia> findByResumenNoticia(String resumenNoticia){
-        return this.noticiaRepositorio.findByResumenNoticia(resumenNoticia);
-    }
-
 }

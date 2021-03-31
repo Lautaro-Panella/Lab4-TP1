@@ -4,18 +4,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Clase Noticia es la que almacenará cada noticia relacionada a una Empresa
+ * @author Maggini - Panella - Tarditi
+ */
+
 @Entity
 @Table(name = "noticia")
 public class Noticia implements Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     @Column(name = "titulo_de_la_noticia",length = 128)
     private String tituloNoticia;
     @Column(name = "resumen_de_la_noticia",length = 1024)
     private String resumenNoticia;
-    @Column(name = "imagen_noticia",length = 20480)
+    @Column(name = "imagen_noticia",length = 20480, columnDefinition = "mediumtext")
     private String imagenNoticia;
     @Column(name = "contenido_html",length = 20480)
     private String contenidoHtml;
