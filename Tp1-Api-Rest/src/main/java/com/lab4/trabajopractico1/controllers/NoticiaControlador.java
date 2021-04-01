@@ -5,6 +5,7 @@
  */
 package com.lab4.trabajopractico1.controllers;
 
+import com.lab4.trabajopractico1.models.Empresa;
 import com.lab4.trabajopractico1.services.NoticiaServicio;
 import com.lab4.trabajopractico1.models.Noticia;
 import java.util.List;
@@ -56,14 +57,34 @@ public class NoticiaControlador {
     }
 
     /**
-     *Al hacer una petición con la ruta principal/consulta2?titulo=valorTitulo y el método GET, el controller nos
-     * devuelve la/las noticia/s con el título indicado.
+     *Al hacer una petición con la ruta principal/consulta2?consulta=valorConsulta y el método GET, el controller nos
+     * devuelve la/las noticia/s con el título indicado o resumen indicado.
      * @param consulta String
      * @return la o las noticias por titulo o resumen
      */
     @GetMapping("/consulta2")
     public List<Noticia> getNoticiasPorTituloOrResumen(@RequestParam("consulta") String consulta) {
-        return noticiaServicio.findByTituloNoticia(consulta);
+        return noticiaServicio.findByTituloNoticiaOrResumenNoticia(consulta);
+    }
+    /**
+     *Al hacer una petición con la ruta principal/consulta3?titulo=valorTitulo y el método GET, el controller nos
+     * devuelve la/las noticia/s con el título indicado.
+     * @param titulo String
+     * @return la o las noticias por titulo
+     */
+    @GetMapping("/consulta3")
+    public List<Noticia> getNoticiaPorTitulo(@RequestParam("titulo") String titulo) {
+        return noticiaServicio.findByTituloNoticia(titulo);
+    }
+    /**
+     *Al hacer una petición con la ruta principal/consulta4?resumen=valorResumen y el método GET, el controller nos
+     * devuelve la/las noticia/s con el resumen indicado.
+     * @param resumen String
+     * @return la o las noticias resumen
+     */
+    @GetMapping("/consulta4")
+    public List<Noticia> getNoticiaPorResumen(@RequestParam("resumen") String resumen) {
+        return noticiaServicio.findByResumenNoticia(resumen);
     }
 
     /**

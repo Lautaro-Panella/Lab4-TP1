@@ -1,5 +1,6 @@
 package com.lab4.trabajopractico1.services;
 
+import com.lab4.trabajopractico1.models.Empresa;
 import com.lab4.trabajopractico1.models.Noticia;
 import com.lab4.trabajopractico1.repositories.NoticiaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 /**
  * Es una clase de servicio que implementa la interface base de servicio
+ *
  * @author Maggini - Panella - Tarditi
  */
 @Service
@@ -59,12 +61,22 @@ public class NoticiaServicio implements BaseServicio<Noticia> {
     }
 
     @Transactional(readOnly = true)
-    public List<Noticia> findByIdEmpresa(Long empresa){
+    public List<Noticia> findByIdEmpresa(Long empresa) {
         return this.noticiaRepositorio.findByIdEmpresa(empresa);
     }
 
     @Transactional
-    public List<Noticia> findByTituloNoticia(String consulta){
+    public List<Noticia> findByTituloNoticiaOrResumenNoticia(String consulta) {
         return this.noticiaRepositorio.findByTituloNoticiaContainingOrResumenNoticiaContaining(consulta, consulta);
+    }
+
+    @Transactional
+    public List<Noticia> findByTituloNoticia(String titulo) {
+        return this.noticiaRepositorio.findByTituloNoticia(titulo);
+    }
+
+    @Transactional
+    public List<Noticia> findByResumenNoticia(String resumen) {
+        return this.noticiaRepositorio.findByResumenNoticia(resumen);
     }
 }

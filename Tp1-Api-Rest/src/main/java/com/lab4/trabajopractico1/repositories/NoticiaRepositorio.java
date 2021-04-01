@@ -1,5 +1,6 @@
 package com.lab4.trabajopractico1.repositories;
 
+import com.lab4.trabajopractico1.models.Empresa;
 import com.lab4.trabajopractico1.models.Noticia;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -31,5 +32,19 @@ public interface NoticiaRepositorio extends CrudRepository<Noticia, Long> {
      * @return un listado de noticias pasandose por parámetro un titulo y un resumen
      */
     public List<Noticia> findByTituloNoticiaContainingOrResumenNoticiaContaining(String titulo, String resumen);
+
+    /**
+     *
+     * @param titulo String
+     * @return un listado de noticias pasandose por parámetro una titulo
+     */
+    public List<Noticia> findByTituloNoticia(String titulo);
+
+    /**
+     *
+     * @param resumen String
+     * @return un listado de noticias pasandose por parámetro una resumen
+     */
+    public List<Noticia> findByResumenNoticia(String resumen);
 
 }
