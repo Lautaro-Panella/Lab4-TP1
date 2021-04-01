@@ -2,7 +2,7 @@
 <div class="header">
     <div class="container">
       <div class="row">
-        <div class="col-6">
+        <div class="col">
           <div class="navbar-header">
             <a routerLink="/home/{{ empresa.id }}">
               <div class="navbar-brand color text-white px-5">
@@ -11,7 +11,7 @@
             </a>
           </div>
         </div>
-        <div class="col-6 text-right">
+        <div class="col text-right d-none d-md-block">
           <p class="telefono">TELÉFONO</p>
           <a href="callto:#" class="telefonoNumero">
             <i class="fas fa-mobile-alt">&nbsp;</i>{{ empresa.telefono }}</a
@@ -24,7 +24,7 @@
     </div>
   </div>
   <!--NAVEGACIÓN-->
-  <nav class="navbar navbar-expand-sm navbar-dark sticky-top color my-4">
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top color my-4">
     <a class="navbar-brand navegacion btn btn-light text-primary" routerLink="/home/{{ empresa.id }}">INICIO</a>
     <button
       class="navbar-toggler"
@@ -51,7 +51,6 @@
           placeholder="Ingrese texto"
           aria-label="Search"
         />
-        <input type="hidden" name="id" [ngModel]="empresa.id">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
           <i class="fas fa-search"></i>
         </button>

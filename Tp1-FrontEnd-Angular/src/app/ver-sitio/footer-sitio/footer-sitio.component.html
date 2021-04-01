@@ -1,13 +1,22 @@
 <!-- FOOTER -->
 <footer class="top-border text-white mt-3 p-3">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <p class="lead text-center">
-            &copy; {{ empresa.denominacion }}&nbsp;
-            <a href="index-5.html" class="text-white">Privacy Policy</a>
-          </p>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 d-block d-md-none lead text-center">
+        <p class="telefono">TELÉFONO</p>
+        <a href="callto:#" class="telefonoNumero">
+          <i class="fas fa-mobile-alt">&nbsp;</i>{{ empresa.telefono }}</a
+        >
+        <p class="horarioAtencion">
+          <b>Horario:</b>&nbsp;<span>{{ empresa.horarioAtencion }}</span>
+        </p>
+      </div>
+      <div class="col-sm-12">
+        <p class="lead text-center">
+          &copy; {{ empresa.denominacion }}&nbsp;
+          <a href="index-5.html" class="text-white">Privacy Policy</a>
+        </p>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>

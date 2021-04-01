@@ -1,55 +1,63 @@
 <app-header-sitio></app-header-sitio>
 <!-- CONTENIDO -->
 <section>
-<div
-  id="carouselExampleIndicators"
-  class="carousel slide"
-  data-ride="carousel"
-  
->
-  <ol class="carousel-indicators">
-    <li
-      data-target="#carouselExampleIndicators"
-      data-slide-to="0"
-      class="active"
-      *ngFor="let noticia of noticias; let index = index" [attr.data-slide-to]="index"
-    ></li>
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li
+        data-target="#carouselExampleIndicators"
+        data-slide-to="0"
+        class="active"
+        *ngFor="let noticia of noticias; let index = index"
+        [attr.data-slide-to]="index"
+      ></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" >
+      <div
+        class="carousel-item active"
+        *ngFor="let noticia of noticias; let index = index; let isFirst = first"
+        [ngClass]="{ active: isFirst }"
+      >
+        <img
+          class="d-block w-100"
+          src="{{ noticia.imagenNoticia }}"
+          alt="First slide"
+          style="width:100%; height: 600px !important;"
+        />
 
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active" style="height: 100vh" *ngFor="let noticia of noticias;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-      <img
-        class="d-block w-100"
-        src="{{ noticia.imagenNoticia }}"
-        alt="First slide"
-      />
-      <div class="carousel-caption d-none d-md-block ml-auto mr-auto">
-          <h5>{{ noticia.tituloNoticia }}</h5>          
+        <div class="carousel-caption d ml-auto mr-auto">
+          <h5>{{ noticia.tituloNoticia }}</h5>
           <p>{{ noticia.resumenNoticia }}</p>
-          <a routerLink="/detalle/{{ empresa.id }}/{{ noticia.id }}" class="text-white">Leer noticia&nbsp;<i class="fas fa-angle-right"></i></a>
-        
+          <a
+            routerLink="/detalle/{{ empresa.id }}/{{ noticia.id }}"
+            class="text-white"
+            >Leer noticia&nbsp;<i class="fas fa-angle-right"></i
+          ></a>
+        </div>
       </div>
     </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a
-    class="carousel-control-prev"
-    href="#carouselExampleIndicators"
-    role="button"
-    data-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a
-    class="carousel-control-next"
-    href="#carouselExampleIndicators"
-    role="button"
-    data-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 </section>
 
 <!-- QUIENES SOMOS -->
@@ -66,7 +74,7 @@
   </div>
 </section>
 
-<hr>
+<hr />
 
 <!-- DONDE ESTAMOS -->
 
@@ -82,17 +90,17 @@
 
 <div class="container">
   <div class="d-flex justify-content-center">
-  <agm-map
-    [latitude]="empresa.latitud"
-    [longitude]="empresa.longitud"
-    [zoom]="17"
-  >
-    <agm-marker
+    <agm-map
       [latitude]="empresa.latitud"
       [longitude]="empresa.longitud"
-    ></agm-marker>
-  </agm-map>
-</div>
+      [zoom]="17"
+    >
+      <agm-marker
+        [latitude]="empresa.latitud"
+        [longitude]="empresa.longitud"
+      ></agm-marker>
+    </agm-map>
+  </div>
 </div>
 
 <app-footer-sitio></app-footer-sitio>

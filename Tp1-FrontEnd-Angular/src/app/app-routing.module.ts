@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'editar-noticia/:id', component: EditarNoticiaComponent},
   { path: 'home/:id', component: HomeComponent},
   { path: 'detalle/:id/:id2', component: DetalleComponent},
-  { path: 'buscador', component: BuscadorComponent},
+  { path: 'buscador/:buscar/:id', component: BuscadorComponent},
   { path: '**', component: NoEncontradoComponent}
 ];
 

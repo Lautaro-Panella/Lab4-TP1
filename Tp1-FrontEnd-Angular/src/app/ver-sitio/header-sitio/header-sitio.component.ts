@@ -17,7 +17,7 @@ export class HeaderSitioComponent implements OnInit {
   noticia: NoticiaI;
 
   searchForm = new FormGroup({
-    buscar: new FormControl('', Validators.required),
+    buscar: new FormControl('', Validators.required)
   });
 
   constructor(private empresaServicio: EmpresaService,
@@ -37,7 +37,8 @@ export class HeaderSitioComponent implements OnInit {
     )
   }
 
-  getNews(form: string){
-    this.router.navigate(['buscador', form]);
+  getNews(form: any){
+    console.log(form.id);
+    this.router.navigate(['buscador', form.buscar, this.empresa.id]);
   }
 }
